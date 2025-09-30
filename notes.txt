@@ -1,0 +1,1 @@
+-need to give permission of hammerspoon and possibly terminal to control desktop
