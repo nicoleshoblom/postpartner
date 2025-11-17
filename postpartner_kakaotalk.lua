@@ -54,19 +54,11 @@ function M.run(chatname, messagepath)
     --load message to send from txt file
     hs.timer.usleep(700000)
     load_message(messagepath)
-    -- hs.timer.doAfter(0.7, function()
-    --     local file = io.open(messagepath, "r")
-    --     if not file then return end
-    --     local text = file:read("*all")
-    --     file:close()
-    --     hs.pasteboard.setContents(text)
-    --     hs.eventtap.keyStroke({"cmd"}, "v")
-    -- end)
 
     --hit enter to send message in kakatalk chat window
-    -- hs.timer.doAfter(0.7, function()
-    --     hs.eventtap.keyStroke({}, "return")
-    -- end)
+    hs.timer.usleep(700000)
+    hs.eventtap.keyStroke({}, "return")
+
 end
 
 return M
