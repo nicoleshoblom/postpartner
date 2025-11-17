@@ -38,10 +38,9 @@ function M.run(chatname, messagepath)
     hs.eventtap.keyStroke({}, "return")
 
     --clear any text in chat window
-    hs.timer.doAfter(0.7, function()
-        hs.eventtap.keyStroke({"cmd"}, "a")
-        hs.eventtap.keyStroke({}, "delete")
-    end)
+    hs.timer.usleep(700000)
+    hs.eventtap.keyStroke({"cmd"}, "a")
+    hs.eventtap.keyStroke({}, "delete")
 
     --load message to send from txt file
     hs.timer.doAfter(0.7, function()
