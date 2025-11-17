@@ -10,10 +10,6 @@ function M.run(chatname, messagepath)
 
     post_to_classlist.run(chatname, messagepath)
 
-    -- hs.timer.doAfter(1.0, function()
-    --     hs.execute('open -na "Google Chrome" --args --new-window --profile-directory="Default" "https://app.classlist.com/school/#/announcements/create"')
-    -- end)
-
     -- hs.timer.doAfter(2.0, function()
     --     local elementname = nil
     --     while elementname ~= "To one or more Class, Year, Group" do
