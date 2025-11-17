@@ -33,10 +33,9 @@ function M.run(chatname, messagepath)
     hs.eventtap.keyStrokes(chatname)
 
     --open chatname chat window
-    hs.timer.doAfter(0.7, function()
-        hs.eventtap.keyStroke({}, "down")
-        hs.eventtap.keyStroke({}, "return")
-    end)
+    hs.timer.usleep(700000)
+    hs.eventtap.keyStroke({}, "down")
+    hs.eventtap.keyStroke({}, "return")
 
     --clear any text in chat window
     hs.timer.doAfter(0.7, function()
