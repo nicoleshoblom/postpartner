@@ -1,11 +1,6 @@
 local M = {}
 
-function M.run(chatname, messagepath)
-    --open kakaotalk
-    hs.application.launchOrFocus("KakaoTalk")
-
-    --open kakaotalk window titled "Kakaotalk"
-    hs.timer.doAfter(0.4, function()
+local function open_kakaotalk_window_tilted_kakaotalk()
     local app = hs.application.find("KakaoTalk")
     if not app then return end
     -- Find a window titled exactly "KakaoTalk"
@@ -18,7 +13,15 @@ function M.run(chatname, messagepath)
       end
     end
     hs.alert('Window "KakaoTalk" not found')
-  end)
+end
+
+function M.run(chatname, messagepath)
+    --open kakaotalk
+    hs.application.launchOrFocus("KakaoTalk")
+
+    --open kakaotalk window titled "Kakaotalk"
+    hs.timer.usleep(400000)
+    open_kakaotalk_window_tilted_kakaotalk()
 
     --hit command 2 to ensure chatlist is open
     hs.eventtap.keyStroke({"cmd"}, "2")
