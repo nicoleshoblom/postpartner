@@ -1,18 +1,18 @@
 local M = {}
 
 local function open_kakaotalk_window_tilted_kakaotalk()
-    local app = hs.application.find("KakaoTalk")
+    local app = hs.application.find(window_name)
     if not app then return end
     -- Find a window titled exactly "KakaoTalk"
     for _, w in ipairs(app:allWindows()) do
-      if w:title() == "KakaoTalk" then
+      if w:title() == window_name then
         w:unminimize()
         w:raise()
         w:focus()
         return
       end
     end
-    hs.alert('Window "KakaoTalk" not found')
+    hs.alert('Window not found')
 end
 
 local function load_message(messagepath)
@@ -30,7 +30,7 @@ function M.run(chatname, messagepath)
 
     --open kakaotalk window titled "Kakaotalk"
     hs.timer.usleep(400000)
-    open_kakaotalk_window_tilted_kakaotalk()
+    open_kakaotalk_window_tilted_kakaotalk("KakaoTalk")
 
     --hit command 2 to ensure chatlist is open
     hs.eventtap.keyStroke({"cmd"}, "2")
@@ -45,6 +45,10 @@ function M.run(chatname, messagepath)
     hs.timer.usleep(700000)
     hs.eventtap.keyStroke({}, "down")
     hs.eventtap.keyStroke({}, "return")
+
+    --bring messsage field to focus if it's not
+    hs.timer.usleep(700000)
+    hs.eventtap.keyStroke({"shift"}, "tab")
 
     --clear any text in chat window
     hs.timer.usleep(700000)

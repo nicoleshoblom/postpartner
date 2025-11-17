@@ -4,11 +4,11 @@ local post_to_kakaotalk = require("postpartner_kakaotalk")
 local post_to_classlist = require("postpartner_classlist")
 
 function M.run(chatname, messagepath)
-    -- post_to_kakaotalk.run(chatname, messagepath)
+    post_to_kakaotalk.run(chatname, messagepath)
     
     -- hs.timer.usleep(2000000)
 
-    post_to_classlist.run(chatname, messagepath)
+    --post_to_classlist.run(chatname, messagepath)
 
     -- hs.timer.doAfter(2.0, function()
     --     local elementname = nil
