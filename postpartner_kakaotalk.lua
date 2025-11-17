@@ -15,6 +15,15 @@ local function open_kakaotalk_window_tilted_kakaotalk()
     hs.alert('Window "KakaoTalk" not found')
 end
 
+local function load_message(messagepath)
+    local file = io.open(messagepath, "r")
+    if not file then return end
+    local text = file:read("*all")
+    file:close()
+    hs.pasteboard.setContents(text)
+    hs.eventtap.keyStroke({"cmd"}, "v")
+end
+
 function M.run(chatname, messagepath)
     --open kakaotalk
     hs.application.launchOrFocus("KakaoTalk")
@@ -43,14 +52,16 @@ function M.run(chatname, messagepath)
     hs.eventtap.keyStroke({}, "delete")
 
     --load message to send from txt file
-    hs.timer.doAfter(0.7, function()
-        local file = io.open(messagepath, "r")
-        if not file then return end
-        local text = file:read("*all")
-        file:close()
-        hs.pasteboard.setContents(text)
-        hs.eventtap.keyStroke({"cmd"}, "v")
-    end)
+    hs.timer.usleep(700000)
+    load_message(messagepath)
+    -- hs.timer.doAfter(0.7, function()
+    --     local file = io.open(messagepath, "r")
+    --     if not file then return end
+    --     local text = file:read("*all")
+    --     file:close()
+    --     hs.pasteboard.setContents(text)
+    --     hs.eventtap.keyStroke({"cmd"}, "v")
+    -- end)
 
     --hit enter to send message in kakatalk chat window
     -- hs.timer.doAfter(0.7, function()
