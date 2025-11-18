@@ -69,16 +69,8 @@ function M.run(messagepath)
         local ax = hs.axuielement.systemWideElement():attributeValue("AXFocusedUIElement")
         elementname = ax:attributeValue("AXTitle")
     end
-    --hs.eventtap.keyStroke({}, "return")
-    hs.alert.show("Ready to send announcement now")
-
-    -- -- go to the "To one or more Class, Year, Group" field
-    -- local elementname = nil
-    -- while elementname ~= "To one or more Class, Year, Group" do
-    --     hs.eventtap.keyStroke({}, "tab")
-    --     local ax = hs.axuielement.systemWideElement():attributeValue("AXFocusedUIElement")
-    --     elementname = ax:attributeValue("AXPlaceholderValue")
-    -- end
+    hs.eventtap.keyStroke({}, "return")
+    --hs.alert.show("Ready to send announcement now")
 end
 
 return M
