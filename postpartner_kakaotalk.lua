@@ -46,8 +46,7 @@ function M.run(chatname, messagepath)
     hs.eventtap.keyStroke({}, "down")
     hs.eventtap.keyStroke({}, "return")
 
-    --bring messsage field to focus if it's not
-    hs.timer.usleep(700000)
+    --make sure chat window messsage field is in focus
     hs.eventtap.keyStroke({"shift"}, "tab")
 
     --clear any text in chat window
