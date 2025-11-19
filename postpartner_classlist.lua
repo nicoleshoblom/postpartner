@@ -72,7 +72,7 @@ function M.run(messagepath)
         local ax = hs.axuielement.systemWideElement():attributeValue("AXFocusedUIElement")
         elementname = ax:attributeValue("AXTitle")
     end
-    --hs.eventtap.keyStroke({}, "return")
+    hs.eventtap.keyStroke({}, "return")
     --hs.alert.show("Ready to send announcement now")
 end
 
