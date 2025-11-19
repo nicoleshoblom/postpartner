@@ -11,6 +11,9 @@ end
 
 function M.run(messagepath)
     -- open a chrome window in my Nicole profile and go to classlist url for making announcements
+    hs.application.launchOrFocus("Google Chrome")
+    
+    hs.timer.usleep(400000)
     hs.execute('open -na "Google Chrome" --args --new-window --profile-directory="Default" "https://app.classlist.com/school/#/announcements/create"')
 
     hs.timer.usleep(200000)
@@ -69,7 +72,7 @@ function M.run(messagepath)
         local ax = hs.axuielement.systemWideElement():attributeValue("AXFocusedUIElement")
         elementname = ax:attributeValue("AXTitle")
     end
-    hs.eventtap.keyStroke({}, "return")
+    --hs.eventtap.keyStroke({}, "return")
     --hs.alert.show("Ready to send announcement now")
 end
 

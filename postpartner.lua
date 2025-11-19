@@ -6,7 +6,7 @@ local post_to_classlist = require("postpartner_classlist")
 function M.run(chatname, messagepath)
     post_to_kakaotalk.run(chatname, messagepath)
     
-    hs.timer.usleep(200000)
+    hs.timer.usleep(2000000)
 
     post_to_classlist.run(messagepath)
 
