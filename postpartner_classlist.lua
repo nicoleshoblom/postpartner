@@ -11,12 +11,13 @@ end
 
 function M.run(messagepath)
     -- open a chrome window in my Nicole profile and go to classlist url for making announcements
+    --to do: remove this once you add code to wait to do all the tabs until chrome window is active
     hs.application.launchOrFocus("Google Chrome")
     
     hs.timer.usleep(400000)
     hs.execute('open -na "Google Chrome" --args --new-window --profile-directory="Default" "https://app.classlist.com/school/#/announcements/create"')
 
-    hs.timer.usleep(200000)
+    hs.timer.usleep(2000000)
     go_to_ClassYearGroup_filter()
 
     --type in filter you want
