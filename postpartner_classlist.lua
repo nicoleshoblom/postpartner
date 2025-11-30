@@ -2,10 +2,27 @@ local M = {}
 
 local function go_to_ClassYearGroup_filter()
     local elementname = nil
+    count = 0
     while elementname ~= "To one or more Class, Year, Group" do
+        count = count + 1
+        if count > 20 then
+            break
+        end
         hs.eventtap.keyStroke({}, "tab")
         local ax = hs.axuielement.systemWideElement():attributeValue("AXFocusedUIElement")
         elementname = ax:attributeValue("AXPlaceholderValue")
+        -- hs.alert.show(ax:attributeValue("AXTitle"))
+        -- hs.alert.show(ax:attributeValue("AXValue"))
+        -- elementname = ax:attributeValue("AXDescription")
+        -- hs.alert.show(ax:attributeValue("AXHelp"))
+        -- hs.alert.show(ax:attributeValue("AXRole"))
+        -- hs.alert.show(ax:attributeValue("AXRoleDescription"))
+        -- hs.alert.show(ax:attributeValue("AXIdentifier"))
+        -- hs.alert.show(ax:attributeValue("AXDOMIdentifier"))
+        -- hs.alert.show(ax:attributeValue("AXLabelValue"))
+        -- hs.alert.show(ax:attributeValue("AXTitleUIElement"))
+        -- hs.alert.show(ax:attributeValue("AXSubrole"))
+        --hs.alert.show(elementname)
     end
 end
 
@@ -74,7 +91,7 @@ function M.run(messagepath)
         elementname = ax:attributeValue("AXTitle")
     end
     -- hs.eventtap.keyStroke({}, "return")
-    --hs.alert.show("Ready to send announcement now")
+    hs.alert.show("Ready to send announcement now")
 end
 
 return M
